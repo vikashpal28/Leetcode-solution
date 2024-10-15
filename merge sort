@@ -1,0 +1,20 @@
+void merge(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n) {
+    if (m >= 0 && n >= 0 && m + n > 0) {
+        int t = m + n - 1;
+        int s1 = m - 1;
+        int s2 = n - 1;
+
+        while (s1 >= 0 || s2 >= 0) {
+            if (s1 < 0) {
+                //printf("Copy nums2 to nums1 %d", s2 + 1);
+                memcpy(nums1, nums2, sizeof(int) * (s2 + 1));
+                //while(s2-- >= 0) *nums1++ = *nums2++;
+                break;
+            } else if (s2 < 0) {
+                break;
+            }
+
+            nums1[t--] = (nums1[s1] >= nums2[s2]) ? nums1[s1--] :nums2[s2--];
+        }
+    }
+}
