@@ -1,0 +1,17 @@
+int removeDuplicates(int* nums, int numsSize) {
+    
+    if(numsSize <= 2){
+    return numsSize;}
+    int nu = 2;
+    int i;
+    for(i=2;i<numsSize;i++){
+      if(nums[i]!=nums[nu-2]||nums[i]!=nums[nu-1]){
+        nums[nu]=nums[i];
+    nu++;
+      }
+    }
+    return nu;
+}
+/*output
+1 1 2 2 3 3
+*/
