@@ -1,0 +1,21 @@
+int majorityElement(int* nums, int numsSize){
+    int i;
+    int count = 0;
+    int curr = nums[0];
+    for(i = 0;i<numsSize;i++){
+        //if numbers are same than increase
+    if(curr == nums[i]){
+        count++;
+    }
+    //if number are not same than decrease
+    else{
+        count--;
+    }
+    //if count reaches to be -1 than update it to zero
+    if(count ==-1){
+        curr = nums[i];
+        count = 0;
+    }
+    }
+    return curr;
+  }
